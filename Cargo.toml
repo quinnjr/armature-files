@@ -1,12 +1,12 @@
 [package]
 name = "armature-files"
-version = "0.2.0"
-edition.workspace = true
-rust-version.workspace = true
-authors.workspace = true
-license.workspace = true
+version = "0.2.2"
+edition = "2024"
+rust-version = "1.94.1"
+authors = ["Joseph Quinn <quinn.josephr@proton.me>"]
+license = "Apache-2.0"
 repository = "https://github.com/quinnjr/armature-files"
-homepage.workspace = true
+homepage = "https://quinnjr.github.io/armature"
 description = "File processing pipeline for Armature framework - images, PDFs, and format conversion"
 keywords = ["image", "pdf", "file-processing", "media", "conversion"]
 categories = ["multimedia::images", "web-programming"]
@@ -26,7 +26,7 @@ include = [
 # standalone file-processing library with no request/response, routing or
 # runtime surface, and pulling `armature-core` in for zero call sites cost
 # ~140 extra transitive crates on every build.
-tokio = { version = "1.52", features = ["rt-multi-thread", "fs", "io-util"] }
+tokio = { version = "1.53", features = ["rt-multi-thread", "fs", "io-util"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 async-trait = "0.1"
@@ -65,7 +65,7 @@ ab_glyph = { version = "0.2", optional = true }
 #
 # `printpdf` is deliberately absent: `PdfBuilder` assembles content streams and
 # serializes them with `lopdf` directly, and printpdf had zero call sites.
-lopdf = { version = "0.43", optional = true }
+lopdf = { version = "0.45", optional = true }
 
 # Additional formats
 zip = { version = "8.6", optional = true }
@@ -88,7 +88,7 @@ full = ["images", "embedded-font", "pdf", "archives"]
 [dev-dependencies]
 cargo-husky = { version = "1.5", default-features = false, features = ["user-hooks"] }
 tempfile = "3.27"
-tokio = { version = "1.52", features = ["macros", "rt-multi-thread"] }
+tokio = { version = "1.53", features = ["macros", "rt-multi-thread"] }
 image = { version = "0.25", default-features = false, features = [
     "bmp",
     "gif",
@@ -98,6 +98,6 @@ image = { version = "0.25", default-features = false, features = [
     "tiff",
     "webp",
 ] }
-lopdf = { version = "0.43" }
+lopdf = { version = "0.45" }
 zip = { version = "8.6" }
 

@@ -14,9 +14,7 @@ fn first_page_content(pdf_bytes: &[u8]) -> String {
         .iter()
         .next()
         .expect("document should have at least one page");
-    let content = doc
-        .get_page_content(*page_id)
-        .expect("should be able to read/decompress page content");
+    let content = doc.get_page_content(*page_id);
     String::from_utf8_lossy(&content).into_owned()
 }
 
