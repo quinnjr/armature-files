@@ -9,6 +9,10 @@ Earlier changes are recorded in the workspace [`CHANGELOG.md`](../CHANGELOG.md).
 
 ## [Unreleased]
 
+### Security
+
+- **Breaking:** `zip` upgraded 8.6 → 9.0.4, fixing RUSTSEC-2026-0367, RUSTSEC-2026-0368 and RUSTSEC-2026-0369. The crate never used zip's own `extract` family; `ZipExtractor` keeps its custom path-traversal (`enclosed_name`), entry-count and uncompressed-size protections. `zip` types do not appear in this crate's public API, but the major bump changes the dependency tree.
+
 ## [0.2.2] - 2026-09-15
 
 ### Changed
