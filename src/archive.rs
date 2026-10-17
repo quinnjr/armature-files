@@ -508,7 +508,17 @@ impl ZipExtractor {
 
     /// List files in the archive
     pub fn list_files(&self) -> FileResult<Vec<String>> {
-        self.with_archive(|archive| Ok(archive.file_names().map(|s| s.to_string()).collect()))
+        self.with_archive(|archive| {
+            // zip 9 decodes each name on demand and reports an undecodable
+            // one as an error rather than yielding a lossy string.
+            archive
+                .file_names()
+                .map(|name| {
+                    name.map(|n| n.into_owned())
+                        .map_err(|e| FileError::Archive(format!("Invalid entry name: {}", e)))
+                })
+                .collect()
+        })
     }
 
     /// Extract a single file by name
