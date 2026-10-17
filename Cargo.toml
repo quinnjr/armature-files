@@ -1,6 +1,6 @@
 [package]
 name = "armature-files"
-version = "0.2.2"
+version = "0.3.0"
 edition = "2024"
 rust-version = "1.94.1"
 authors = ["Joseph Quinn <quinn.josephr@proton.me>"]
@@ -68,7 +68,7 @@ ab_glyph = { version = "0.2", optional = true }
 lopdf = { version = "0.45", optional = true }
 
 # Additional formats
-zip = { version = "8.6", optional = true }
+zip = { version = "9.0.4", optional = true }
 # `ZipExtractor::extract_to` stages into a temporary directory inside the target
 # so a failed extraction leaves nothing behind; a failure while promoting the
 # staged entries is rolled back (best-effort) rather than left half-applied.
@@ -99,5 +99,5 @@ image = { version = "0.25", default-features = false, features = [
     "webp",
 ] }
 lopdf = { version = "0.45" }
-zip = { version = "8.6" }
+zip = { version = "9.0.4" }
 
