@@ -65,7 +65,7 @@ ab_glyph = { version = "0.2", optional = true }
 #
 # `printpdf` is deliberately absent: `PdfBuilder` assembles content streams and
 # serializes them with `lopdf` directly, and printpdf had zero call sites.
-lopdf = { version = "0.45", optional = true }
+lopdf = { version = "0.47", optional = true }
 
 # Additional formats
 zip = { version = "9.0.4", optional = true }
@@ -98,6 +98,6 @@ image = { version = "0.25", default-features = false, features = [
     "tiff",
     "webp",
 ] }
-lopdf = { version = "0.45" }
+lopdf = { version = "0.47" }
 zip = { version = "9.0.4" }
 
